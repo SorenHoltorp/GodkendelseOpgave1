@@ -4,7 +4,6 @@ import { auth } from "../firebase"
 import React, { useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar'
 
-/*Dette er en anden måde at style på, hidtil kendt brugte jeg styleSheet, men denne måde jeg godt li*/
 const Container = styled.View`
         flex: 1;
         background-color black;
@@ -12,13 +11,14 @@ const Container = styled.View`
         align-items: center
 `
 
-//Hvis brugeren ikke er logget ind så navigeres de til login skærmen efter splashen, ellers hjemmeskærm ved login token.
+//If user is logged in, homescreen, if not login screen
 const Splash = ({navigation}) => {
       
     useEffect(() => {
       const unsubscribe = auth.onAuthStateChanged((authUser) => {
         if(authUser) {
-          navigation.replace("Home")
+          /* Er ændret fra Register til BottomStack tester */
+          navigation.replace("BottomStack")
         } else { 
           navigation.replace("Login")
         }
@@ -29,11 +29,14 @@ const Splash = ({navigation}) => {
 
   }, [])
 
+
   return (
         <>
         <StatusBar style='light'/>
         <Container />
 
+
+        
         </>
   )
     

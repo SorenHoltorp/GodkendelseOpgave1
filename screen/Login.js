@@ -6,7 +6,6 @@ import Baggrund from "../assets/Backgroundlogin.png"
 import { auth } from '../firebase';
 
 
-/*Definerer alle mine konstanter og tilægger dem en masse CSS*/
 
 const Container = styled.ScrollView`
 	flex: 1;
@@ -63,7 +62,8 @@ font-size: 30px;
 font-weight: bold;
 color: white;
 margin: 10px;
-text-align: left;
+marginLeft: -5px;
+text-align: center;
 `
 
 const NewToFoodBeeTextWrapper = styled.TouchableOpacity`
@@ -89,7 +89,7 @@ const ImageBackground = styled.ImageBackground`
     height: 1000px
 `
 
-/* Min login funktion,  */
+
  
 const Login = ({navigation}) => {
 
@@ -120,9 +120,6 @@ const Login = ({navigation}) => {
         })
     }
 
-  /* her bliver alle de konstanter jeg styled for oven anvendt*/
-
-  /* Det er hvad brugeren ser, har valgt en baggrund som jeg selv har lavet ;D  */
   return (
     <>
     <StatusBar style ="light"/>
@@ -136,7 +133,6 @@ const Login = ({navigation}) => {
                   <Input placeholder="Indtast dit password" placeholderTextColor="grey" secureTextEntry value={password} onChangeText={text => setPassword(text)}/>
                   <SubmitForm activeOpacity ={0.5} onPress={login} disabled={loading}><ButtonText>{loading? "Loading..." : "Log Ind"}</ButtonText></SubmitForm>
                   <NewToFoodBeeTextWrapper activeOpacity={0.5} onPress={() => navigation.navigate("Register")}><NewToFoodBee>Nyt medlem af FoodBee ? Opret dig</NewToFoodBee></NewToFoodBeeTextWrapper>
-
                 </Form>
               </FormWrapper>
             </Overlay>

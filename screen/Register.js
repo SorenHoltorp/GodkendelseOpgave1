@@ -7,8 +7,6 @@ import Baggrund from "../assets/Backgroundlogin.png"
 import { db, auth } from '../firebase';
 
 
-/*Definerer alle mine konstanter og tilægger dem en masse CSS*/
-
 const Container = styled.ScrollView`
 	flex: 1;
     background-color: #000;
@@ -137,7 +135,7 @@ const Register = ({navigation}) => {
       .catch(error => alert(error.message))
    }
 
-   /*En anden form for oprettelse funktion, som indkludere fornavn og efternavn - dog fungerer den ikke helt endnu*/
+   /*En anden form for oprettelse funktion jeg har tidligere anvendt, kan ikke finde ud af hvilken jeg bedst kan li*/
 /*
     const register = () => {
       setLoading(true);
@@ -178,7 +176,7 @@ const Register = ({navigation}) => {
               <FormWrapper>
                 <Form>
                   <SignInText> Opret dig her</SignInText>
-                  <InputWrapper> {/*skal måske slettes - eller bygges om fordi lige nu gemmes navnene ikke i DB - men funktion på vej*/}
+                  <InputWrapper> 
                     <HalfInputWrapper>
                     <HalfInput placeholder="Deres Fornavn" placeholderTextColor="grey" value={firstName} onChangeText={text => setFirstName(text)}/>
                     <HalfInput placeholder="Deres Efternavn" placeholderTextColor="grey" value={lastName} onChangeText={text => setLastName(text)}/>
@@ -186,7 +184,6 @@ const Register = ({navigation}) => {
                   </InputWrapper>
                   <Input placeholder="Indtast din Email" placeholderTextColor="grey" value={email} onChangeText={text => setEmail(text)}/>
                   <Input placeholder="Indtast dit password" placeholderTextColor="grey" secureTextEntry value={password} onChangeText={text => setPassword(text)}/>
-                  {/*her forgå det samme som ved login, dog bruger jeg så bare min handleSignup funktion istedet.*/}
                   <SubmitForm activeOpacity ={0.5} onPress={handleSignUp} disabled={loading}><ButtonText>{loading? "Loading..." : "Opret dig"}</ButtonText></SubmitForm>
                   <NewToFoodBeeTextWrapper activeOpacity={0.5} onPress={() => navigation.navigate("Login")}><NewToFoodBee>Allerede medlem? Log ind nu!</NewToFoodBee></NewToFoodBeeTextWrapper>
 
