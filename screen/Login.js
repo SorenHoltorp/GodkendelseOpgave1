@@ -62,7 +62,7 @@ font-size: 30px;
 font-weight: bold;
 color: white;
 margin: 10px;
-marginLeft: -5px;
+marginLeft: -px;
 text-align: center;
 `
 
