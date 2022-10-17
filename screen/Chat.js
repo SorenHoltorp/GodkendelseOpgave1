@@ -13,14 +13,15 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 export default function Home() {
 
     const navigation = useNavigation()
-  
-  
+
   /* Liiidt for simple logud, men det var nødvendigt for at teste */
     return (
       <>
       <StatusBar style ="light"/>
          <ImageBackground source={Baggrund} resizeMode="stretch"></ImageBackground>
-         <Text>DET HER ER DASHBOARD</Text>
+         <View>
+          <Text>DET HER ER CHAT</Text>
+         </View>
         </>
     )
   }
@@ -31,6 +32,11 @@ export default function Home() {
   `
   
   const styles = StyleSheet.create({
+      Text:{
+        alignContent: "center",
+        justifyContent: "center",
+        alignSelf: "center"
+      },
       logud:{
         alignItems: 'center',
         justifyContent: "center",

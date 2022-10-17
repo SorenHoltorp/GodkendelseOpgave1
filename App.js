@@ -6,17 +6,18 @@ import Login from "./screen/Login"
 import Register from './screen/Register';
 import Splash from './screen/Splash';
 import Home from './screen/Home';
-import Profil from './screen/Profil';
+import Settings from './screen/Settings';
 import HentMad from './screen/HentMad';
 import GivMad from './screen/GivMad';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {AntDesign, MaterialIcons, Ionicons, FontAwesome} from "@expo/vector-icons";
+import {AntDesign, MaterialIcons, Ionicons, FontAwesome, FontAwesome5} from "@expo/vector-icons";
+import Chat from './screen/Chat';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-
+      
   function BottomStackScreen(){
     return (
       <Tab.Navigator tabBarOptions={{
@@ -24,31 +25,30 @@ export default function App() {
         inactiveTintColor: "orange",
         swipeEnabled: true,
         style:{
-          backgroundColor: "#141414",
+          backgroundColor: 'transparent',
+          position: 'absolute',
           borderTopWidth: 0,
-          elevation: 0,
-          shadowOffset: {
-            width: 0, height: 0
-          },
-          height: 60,
-          paddingBottom: 10,
+         elevation: 0,
         }
       }}
       screenOptions={{
         tabBarItemStyle: {flexDirection: "row"}
       }}
       >
-        <Tab.Screen name="Dashboard" component={Home} options={{
-          tabBarIcon: ({ color }) => <AntDesign name="home" size={30} color={color} style={{ fontWeight: "bold", marginLeft: 10, marginBottom: 25, marginTop: -20, }} />
+       <Tab.Screen name=" " component={Chat} options={{
+        headerShown: false, tabBarIcon: ({ color }) => <Ionicons name="chatbox" size={30} color={color} style={{marginLeft: 10, marginBottom: 25, marginTop: -20, }} />
         }} />
-        <Tab.Screen name="Profil" component={Home} options={{
-          tabBarIcon: ({ color }) => <MaterialIcons name="settings" size={30} color={color} style={{ fontWeight: "bold", marginLeft: 10, marginBottom: 25, marginTop: -20, }} />
+         <Tab.Screen name="  " component={HentMad} options={{
+           headerShown: false, tabBarIcon: ({ color }) => <FontAwesome name="recycle" size={30} color={color} style={{marginLeft: 10, marginBottom: 25, marginTop: -20, }} />
         }} />
-        <Tab.Screen name="Giv Mad" component={Home} options={{
-          tabBarIcon: ({ color }) => <FontAwesome name="recycle" size={30} color={color} style={{marginLeft: 10, marginBottom: 25, marginTop: -15,}} />
+        <Tab.Screen name="   " component={Home} options={{
+          headerShown: false, tabBarIcon: ({ color }) => <Ionicons name="ios-person" size={30} color={color} style={{marginLeft: 10, marginBottom: 25, marginTop: -20, }} />
         }} />
-        <Tab.Screen name="Hent Mad" component={Home} options={{
-          tabBarIcon: ({ color }) => <MaterialIcons name="food-bank" size={30} color={color} style={{ fontWeight: "bold", marginLeft: 10, marginBottom: 25, marginTop: -20, }} />
+        <Tab.Screen name="    " component={GivMad} options={{
+          headerShown: false, tabBarIcon: ({ color }) => <FontAwesome5 name="hand-holding-heart" size={30} color={color} style={{marginLeft: 10, marginBottom: 25, marginTop: -15,}} />
+        }} />
+         <Tab.Screen name="     " component={Settings} options={{
+          headerShown: false, tabBarIcon: ({ color }) => <MaterialIcons name="settings" size={30} color={color} style={{ fontWeight: "bold", marginLeft: 10, marginBottom: 25, marginTop: -20, }} />
         }} />
       </Tab.Navigator>
 
@@ -81,6 +81,7 @@ export default function App() {
             gestureEnabled: true,
             animationEnabled: true,
             gestureDirection: "horizontal",
+            headerShown: false,
              }}/> 
              <Stack.Screen name="BottomStack" component={BottomStackScreen} options={{
             gestureEnabled: true,
@@ -90,9 +91,19 @@ export default function App() {
 
              }}/> 
 
-             <Stack.Screen name = "GivMad" component={GivMad} /> 
-             <Stack.Screen name = "HentMad" component={HentMad} /> 
-             <Stack.Screen name = "Profil" component={Profil} /> 
+             <Stack.Screen name = "GivMad" component={GivMad} options={{
+                
+                 }} /> 
+             <Stack.Screen name = "HentMad" component={HentMad} options={{
+                
+                 }} /> 
+             <Stack.Screen name = "Settings" component={Settings} options={{
+                
+                 }} /> 
+             <Stack.Screen name = "Chat" component={Chat} options={{
+                
+                 }}/>  
+
         </Stack.Navigator>
     </KeyboardAvoidingView>
     </NavigationContainer>
